@@ -1,0 +1,21 @@
+{% include('common/_header.twig') %}
+
+    <!--*************************************************************************************-->
+    <div class="main"> <!-- доп.обёртка для прижатия футера -->
+
+        {% include('common/_nav.twig') %}
+
+        <div class="content">
+            <div class="wrapper">
+                <main>
+                    <h1>Выпускной проект №1</h1>
+                    <p class="message success-message">
+                        {{ successMessage | raw }}
+                    </p>
+                </main>
+            </div>
+        </div>
+    </div>
+    <!--*************************************************************************************-->
+
+{% include('common/_footer.twig') %}

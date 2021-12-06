@@ -1,0 +1,27 @@
+{% include('common/_header.twig') %}
+
+<div class="main"> <!-- доп.обёртка для прижатия футера -->
+
+    {% include('common/_nav.twig') %}
+    <div class="content">
+        <div class="wrapper">
+            <main>
+                <h1>Выпускной проект №1 - Блог</h1>
+                <h2>СПИСОК ПОСТОВ ПОЛЬЗОВАТЕЛЯ</h2>
+                <div class="posts">
+                    {% for post in posts %}
+                        <div class="post">
+                            <div class="post-title">{{ post.name }}</div>
+                            <div>{{ post.message }}</div>
+                            {% if admin %}
+                                <a href="del/?post_id={{ post.id }}">Удалить пост</a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+{% include('common/_footer.twig') %}

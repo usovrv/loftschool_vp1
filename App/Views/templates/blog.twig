@@ -1,0 +1,49 @@
+{% include('common/_header.twig') %}
+
+<div class="main"> <!-- доп.обёртка для прижатия футера -->
+
+    {% include('common/_nav.twig') %}
+    <div class="content">
+        <div class="wrapper">
+            <main>
+                <h1>Выпускной проект №1 - Блог</h1>
+                <h2>СПИСОК ПОЛЬЗОВАТЕЛЕЙ</h2>
+                <table class="table-blog-users-list">
+                    <tr>
+                        <th>ID</th>
+                        <th>EMAIL</th>
+                        <th>NAME</th>
+                        {% if admin %}
+                            <th></th>
+                        {% endif %}
+                    </tr>
+                    {% for user in users %}
+                        <tr class="userslist-user-info">
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.name }}</td>
+                            {% if admin %}
+                                <td><a href="userpost/?user_id={{ user.id }}">Показать посты пользователя</a> </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </table>
+                <a href="/blog/add/">Добавить новую запись</a>
+                <h2>СПИСОК ПОСТОВ</h2>
+                <div class="posts">
+                    {% for post in posts %}
+                        <div class="post">
+                            <div class="post-title">{{ post.name }}</div>
+                            <div>{{ post.message }}</div>
+                            {% if admin %}
+                                <a href="del/?post_id={{ post.id }}">Удалить пост</a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+{% include('common/_footer.twig') %}

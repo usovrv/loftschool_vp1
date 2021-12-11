@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-
 class MainController extends Controller
 {
     public function actionIndex()
@@ -15,6 +14,9 @@ class MainController extends Controller
             $viewData['name'] = $userInfo['name'];
             $viewData['exit'] = '<a href="/user/logout">Выйти</a>';
         }
+
+        $viewData['oldPic'] = '/img/img.png';
+        $viewData['newPic'] = '/img/img.webp';
         $this->view->render('main', $viewData);
     }
 }

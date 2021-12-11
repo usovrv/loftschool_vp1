@@ -6,6 +6,7 @@
     },
     "require": {
         "intervention/image": "^2.7",
-        "twig/twig": "^3.0"
+        "twig/twig": "^3.0",
+        "swiftmailer/swiftmailer": "^6.3"
     }
 }
